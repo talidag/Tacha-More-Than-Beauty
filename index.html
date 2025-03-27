@@ -18,6 +18,9 @@
       type="text/javascript"
       src="https://cdn-cookieyes.com/client_data/bbddb235eba8fb9b8afd157d/script.js"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+
+    <script type="text/javascript" src="./wp-includes/js/sendMail.js"></script>
     <!-- This site is optimized with the Yoast SEO plugin v24.5 - https://yoast.com/wordpress/plugins/seo/ -->
     <title>TACHA - More Then Beauty​</title>
     <meta
@@ -7555,7 +7558,7 @@
                                         data-keyboard_friendly_form="0"
                                         method="post"
                                         enctype="multipart/form-data"
-                                        action="https://formsubmit.co/c7f254a27ec53c7c038907f5f7f1dec9"
+                                        onsubmit="sendEmail(event)"
                                       >
                                         <div class="evf-field-container">
                                           <input
