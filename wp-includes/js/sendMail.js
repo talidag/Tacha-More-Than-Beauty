@@ -1,4 +1,4 @@
-emailjs.init("N6lXPyiJkfnYF7y3t");
+emailjs.init("LEzUnq__HTblitSAU");
 
 // Ensure the script runs after the page has loaded
 document.addEventListener("DOMContentLoaded", function () {
@@ -40,15 +40,17 @@ function sendEmail(event) {
   console.log("Template Parameters:", templateParams);
 
   // Send the email using EmailJS
-  emailjs.send("service_1roegd9", "template_ukfggsw", templateParams).then(
+  emailjs.send("service_1roegd9", "template_bsm4qoc", templateParams).then(
     function (response) {
-      console.log("Email sent successfully:", response);
-      alert("Email sent successfully!");
+      console.log("Email trimis cu succes:", response);
+      alert("Email trimis cu succes!");
       document.getElementById("evf-form-165").reset(); // Reset the form after submission
     },
     function (error) {
-      console.error("Failed to send email:", error);
-      alert("Failed to send email. Please try again.");
+      console.error("Trimiterea emailului a eșuat:", error);
+      alert(
+        "Trimiterea emailului a eșuat. Vă rugăm să încercați din nou. Dacă problema persistă, sunați la telefon pentru asistență."
+      );
     }
   );
 }
