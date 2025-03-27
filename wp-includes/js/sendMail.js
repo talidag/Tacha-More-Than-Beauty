@@ -40,7 +40,7 @@ function sendEmail(event) {
   console.log("Template Parameters:", templateParams);
 
   // Send the email using EmailJS
-  emailjs.send("Tacha2025", "template_bsm4qoc", templateParams).then(
+  emailjs.send("service_714mlxl", "template_bsm4qoc", templateParams).then(
     function (response) {
       console.log("Email trimis cu succes:", response);
       alert("Email trimis cu succes!");
