@@ -1,14 +1,30 @@
-emailjs.init("N6lXPyiJkfnYF7y3t"); // Replace with your EmailJS user ID
+emailjs.init("N6lXPyiJkfnYF7y3t");
 
-console.log("TEST");
+// Ensure the script runs after the page has loaded
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the submit button
+  const submitButton = document.getElementById("evf-submit-165");
 
+  // Check if the button exists
+  if (submitButton) {
+    // Attach the click event listener to the button
+    submitButton.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent form from submitting the usual way
+
+      // Call the sendEmail function
+      sendEmail(event);
+    });
+  } else {
+    console.error("Submit button not found!");
+  }
+});
+
+// The function that handles the email sending
 function sendEmail(event) {
-  console.log("TEST222");
-  event.preventDefault(); // Prevent form submission
-  console.log("T33");
-
   // Collect form data
   var formData = new FormData(document.getElementById("evf-form-165"));
+
+  // Prepare template parameters with form data
   var templateParams = {
     name: formData.get("everest_forms[form_fields][Bwrwo76lGf-13]"),
     phone: formData.get("everest_forms[form_fields][Kmhd0MUzbh-14]"),
@@ -20,13 +36,18 @@ function sendEmail(event) {
     ),
   };
 
+  // Log template parameters for debugging
+  console.log("Template Parameters:", templateParams);
+
   // Send the email using EmailJS
   emailjs.send("service_1roegd9", "template_ukfggsw", templateParams).then(
     function (response) {
+      console.log("Email sent successfully:", response);
       alert("Email sent successfully!");
-      document.getElementById("evf-form-165").reset(); // Reset the form
+      document.getElementById("evf-form-165").reset(); // Reset the form after submission
     },
     function (error) {
+      console.error("Failed to send email:", error);
       alert("Failed to send email. Please try again.");
     }
   );
